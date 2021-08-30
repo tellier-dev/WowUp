@@ -410,6 +410,8 @@
         "ENABLE_APP_BADGE_LABEL": "Enable app badge notification",
         "ENABLE_SYSTEM_NOTIFICATIONS_DESCRIPTION": "Habilitar várias notificações e popups do sistema, como os de aviso de Addons atualizados automaticamente.",
         "ENABLE_SYSTEM_NOTIFICATIONS_LABEL": "Habilitar notificações do sistema",
+        "ENABLE_AUTO_UPDATED_ADDONS_NOTIFICATIONS_DESCRIPTION": "Enable system notification popups for auto updated addons",
+        "ENABLE_AUTO_UPDATED_ADDONS_NOTIFICATIONS_LABEL": "Enable Auto Updated Addons Notifications",
         "MINIMIZE_ON_CLOSE_DESCRIPTION_MAC": "Ao fechar a janela do WowUp, minimize para a barra de menu",
         "MINIMIZE_ON_CLOSE_DESCRIPTION_WINDOWS": "Ao fechar a janela do WowUp, minimize para a bandeja do sistema.",
         "MINIMIZE_ON_CLOSE_LABEL": "Minimizar ao Fechar",

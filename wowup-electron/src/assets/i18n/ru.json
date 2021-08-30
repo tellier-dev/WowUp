@@ -410,6 +410,8 @@
         "ENABLE_APP_BADGE_LABEL": "Включить значок уведомления на приложении",
         "ENABLE_SYSTEM_NOTIFICATIONS_DESCRIPTION": "Включить различные окна системных уведомлений, такие как автоматически обновлённые модификации.",
         "ENABLE_SYSTEM_NOTIFICATIONS_LABEL": "Включить системные уведомления",
+        "ENABLE_AUTO_UPDATED_ADDONS_NOTIFICATIONS_DESCRIPTION": "Enable system notification popups for auto updated addons",
+        "ENABLE_AUTO_UPDATED_ADDONS_NOTIFICATIONS_LABEL": "Enable Auto Updated Addons Notifications",
         "MINIMIZE_ON_CLOSE_DESCRIPTION_MAC": "При закрытии окна WowUp сворачивается в меню статуса.",
         "MINIMIZE_ON_CLOSE_DESCRIPTION_WINDOWS": "При закрытии окна WowUp сворачивается в область уведомлений панели задач.",
         "MINIMIZE_ON_CLOSE_LABEL": "Свернуть в трей при закрытии",

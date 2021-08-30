@@ -304,7 +304,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
         return;
       }
 
-      if (this.wowUpService.enableSystemNotifications) {
+      if (this.wowUpService.enableAutoUpdatedAddonsNotifications) {
         // Windows notification only shows so many chars
         if (this.getAddonNamesLength(updatedAddons) > 60) {
           await this.showManyAddonsAutoUpdated(updatedAddons);

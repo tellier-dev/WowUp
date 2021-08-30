@@ -16,6 +16,7 @@ import {
   DEFAULT_THEME,
   ENABLE_APP_BADGE_KEY,
   ENABLE_SYSTEM_NOTIFICATIONS_PREFERENCE_KEY,
+  ENABLE_AUTO_UPDATED_ADDONS_NOTIFICATIONS_PREFERENCE_KEY,
   GET_ADDONS_HIDDEN_COLUMNS_KEY,
   GET_ADDONS_SORT_ORDER,
   IPC_APP_CHECK_UPDATE,
@@ -267,6 +268,16 @@ export class WowUpService {
     this._preferenceStorageService.set(ENABLE_SYSTEM_NOTIFICATIONS_PREFERENCE_KEY, enabled);
   }
 
+  public get enableAutoUpdatedAddonsNotifications(): boolean {
+    return this._preferenceStorageService.findByKey(ENABLE_AUTO_UPDATED_ADDONS_NOTIFICATIONS_PREFERENCE_KEY) === true.toString();
+  }
+
+  public set enableAutoUpdatedAddonsNotifications(enabled: boolean) {
+    const key = ENABLE_AUTO_UPDATED_ADDONS_NOTIFICATIONS_PREFERENCE_KEY;
+    this._preferenceStorageService.set(key, enabled);
+    this._preferenceChangeSrc.next({ key, value: enabled.toString() });
+  }
+
   public get enableAppBadge(): boolean {
     return this._preferenceStorageService.findByKey(ENABLE_APP_BADGE_KEY) === true.toString();
   }
@@ -394,6 +405,7 @@ export class WowUpService {
 
   private async setDefaultPreferences() {
     this.setDefaultPreference(ENABLE_SYSTEM_NOTIFICATIONS_PREFERENCE_KEY, true);
+    this.setDefaultPreference(ENABLE_AUTO_UPDATED_ADDONS_NOTIFICATIONS_PREFERENCE_KEY, true);
     this.setDefaultPreference(COLLAPSE_TO_TRAY_PREFERENCE_KEY, true);
     this.setDefaultPreference(USE_HARDWARE_ACCELERATION_PREFERENCE_KEY, true);
     this.setDefaultPreference(CURRENT_THEME_KEY, DEFAULT_THEME);

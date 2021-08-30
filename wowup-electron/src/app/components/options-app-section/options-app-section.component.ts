@@ -150,6 +150,10 @@ export class OptionsAppSectionComponent implements OnInit {
     this.wowupService.enableSystemNotifications = evt.checked;
   };
 
+  public onEnableAutoUpdatedAddonsNotifications = (evt: MatSlideToggleChange): void => {
+    this.wowupService.enableAutoUpdatedAddonsNotifications = evt.checked;
+  };
+
   public onToggleAppBadge = (evt: MatSlideToggleChange): void => {
     this.wowupService.enableAppBadge = evt.checked;
 

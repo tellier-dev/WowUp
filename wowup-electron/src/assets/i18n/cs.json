@@ -410,6 +410,8 @@
         "ENABLE_APP_BADGE_LABEL": "Enable app badge notification",
         "ENABLE_SYSTEM_NOTIFICATIONS_DESCRIPTION": "Povolí různé systémové notifikace, např. po automatické aktualizaci addonů.",
         "ENABLE_SYSTEM_NOTIFICATIONS_LABEL": "Povolit systémové notifikace",
+        "ENABLE_AUTO_UPDATED_ADDONS_NOTIFICATIONS_DESCRIPTION": "Enable system notification popups for auto updated addons",
+        "ENABLE_AUTO_UPDATED_ADDONS_NOTIFICATIONS_LABEL": "Enable Auto Updated Addons Notifications",
         "MINIMIZE_ON_CLOSE_DESCRIPTION_MAC": "Minimalizovat do lišty při uzavírání WowUp okna.",
         "MINIMIZE_ON_CLOSE_DESCRIPTION_WINDOWS": "Minimalizovat do lišty při uzavírání WowUp okna.",
         "MINIMIZE_ON_CLOSE_LABEL": "Minimalizovat místo vypnutí",
