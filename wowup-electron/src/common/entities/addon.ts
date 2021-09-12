@@ -54,3 +54,9 @@ export interface Addon {
   ignoreReason?: AddonIgnoreReason;
   installationId?: string;
 }
+
+export interface AddonForJson {
+  id?: string;
+  providerName?: string;
+  name: string;
+}

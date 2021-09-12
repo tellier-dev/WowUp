@@ -1,3 +1,6 @@
+import { AddonForJson } from './../../../common/entities/addon';
+import { WarcraftInstallationService } from './../../services/warcraft/warcraft-installation.service';
+import { WowInstallation } from './../../models/wowup/wow-installation';
 import { Component, OnInit } from "@angular/core";
 import { FormControl } from "@angular/forms";
 import { filter } from "lodash";
@@ -14,13 +17,24 @@ import { MatSelectionListChange } from "@angular/material/list";
 export class OptionsAddonSectionComponent implements OnInit {
   public enabledAddonProviders = new FormControl();
   public addonProviderStates: AddonProviderState[] = [];
+  public installations: WowInstallation[] = [];
+  public selectedInstallation: WowInstallation;
 
-  public constructor(private _addonService: AddonService, private _wowupService: WowUpService) {}
+  public constructor(
+    private _addonService: AddonService, 
+    private _wowupService: WowUpService,
+    private _warcraftInstallationService: WarcraftInstallationService) {}
 
   public ngOnInit(): void {
     this.addonProviderStates = filter(this._addonService.getAddonProviderStates(), (provider) => provider.canEdit);
     this.enabledAddonProviders.setValue(this.getEnabledProviderNames());
     console.debug("addonProviderStates", this.addonProviderStates);
+
+    this._warcraftInstallationService.wowInstallations$.subscribe((installs) => {
+      console.warn("Fetched installations", installs);
+      this.installations = installs;
+      this.selectedInstallation = installs[0];
+    });
   }
 
   public onProviderStateSelectionChange(event: MatSelectionListChange): void {
@@ -32,6 +46,25 @@ export class OptionsAddonSectionComponent implements OnInit {
       });
       this._addonService.setProviderEnabled(option.value, option.selected);
     });
+  }
+
+  public exportAddonsAsJsonToClipboard(): void {
+    let addons = this._addonService.getAllAddons(this.selectedInstallation);
+
+    let addonsForJson: AddonForJson[] = addons.map(addon => ({id: addon.id, providerName: addon.providerName, name: addon.name}));
+    var jsonExport: {installation: string, addons: AddonForJson[]} = {installation: this.selectedInstallation.label, addons: addonsForJson}
+    let json = JSON.stringify(jsonExport);
+
+    navigator.clipboard.writeText(json).then().catch(e => console.error(e));
+
+    console.warn("Exported addons as Json to clipboard");
+  }
+
+  public async importAddonsFromJson(): Promise<boolean> {
+    let json = await navigator.clipboard.readText();
+    console.warn("Copied Json from clipboard", json);
+
+    return true;
   }
 
   private getEnabledProviders() {

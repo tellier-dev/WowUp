@@ -19,4 +19,31 @@
       </mat-selection-list>
     </div>
   </div>
+  <br>
+  <div>
+    <div>
+      Import/Export
+    </div>
+    <div class="row align-items-center">
+      <div class="flex-grow-1">
+        Import or export your addons serialized as Json
+      </div>
+
+      <mat-form-field class="mr-3">
+        <mat-label>Installation</mat-label>
+        <mat-select [(value)]="selectedInstallation">
+          <mat-option *ngFor="let installation of installations" [value]="installation">
+            {{ installation.label }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button mat-stroked-button (click)="importAddonsFromJson()" class="mr-3">
+        Import
+      </button>
+      <button mat-flat-button color="primary" (click)="exportAddonsAsJsonToClipboard()">
+        Export
+      </button>
+    </div>
+  </div>
 </div>
